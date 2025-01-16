@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nagui Vaillant Deflandre</title>
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('local-photo.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95); /* Transparence renforcée pour lisibilité */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #00babc;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .header .contact-info {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .header .contact-info a {
+            text-decoration: none;
+            color: #00babc;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .header .contact-info a:active {
+            color: #007a7a;
+        }
+
+        .section {
+            margin: 20px 0;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #00babc;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .projects ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .projects li {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .projects li strong {
+            min-width: 200px; /* Largeur fixe pour les titres */
+            font-weight: bold;
+            color: #007a7a;
+        }
+
+        .projects li span {
+            flex-grow: 1; /* Permet au texte explicatif de s'étendre correctement */
+            text-align: justify;
+        }
+
+        .skills .skill-bar {
+            margin: 15px 0;
+        }
+
+        .skills .skill-bar span {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .skills .bar {
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skills .bar div {
+            height: 100%;
+            background: linear-gradient(90deg, #00babc, #007a7a);
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function replaceLinkText(link, text) {
+            link.innerText = text;
+            link.removeAttribute('onclick');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Nagui Vaillant Deflandre</h1>
+            <div class="contact-info">
+                <a onclick="replaceLinkText(this, 'nagui.vaillant.deflandre@gmail.com')">✉️ Email</a>
+                <a onclick="replaceLinkText(this, '+33651922315')">📞 Téléphone</a>
+                <a href="https://github.com/naguivaillant" target="_blank">🐙 GitHub</a>
+            </div>
+        </div>
+
+        <!-- Profil Professionnel -->
+        <div class="section">
+            <h2>Profil Professionnel</h2>
+            <p>
+                Développeur passionné, formé à l'école 42, avec des compétences en conception, développement,
+                et déploiement d'applications logicielles. Spécialisé dans l'optimisation d'algorithmes et le développement
+                full-stack, je suis toujours motivé par les défis techniques et la collaboration en équipe.
+            </p>
+        </div>
+
+        <!-- Formation -->
+        <div class="section">
+            <h2>Formation</h2>
+            <p><strong>École 42 Paris</strong> - Fin du tronc commun (2025). Formation en développement logiciel (C, Unix, Algorithmes).</p>
+            <p><strong>CFA Versailles</strong> - CAP Boulanger (2016).</p>
+        </div>
+
+        <!-- Compétences -->
+        <div class="section skills">
+            <h2>Compétences</h2>
+            <div class="skill-bar">
+                <span>Algorithmes et IA:</span>
+                <div class="bar"><div style="width: 75%;"></div></div>
+            </div>
+            <div class="skill-bar">
+                <span>Programmation orientée objet:</span>
+                <div class="bar"><div style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-bar">
+                <span>Réseau et administration système:</span>
+                <div class="bar"><div style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-bar">
+                <span>Web (HTML, CSS, JS):</span>
+                <div class="bar"><div style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-bar">
+                <span>Unix:</span>
+                <div class="bar"><div style="width: 90%;"></div></div>
+            </div>
+        </div>
+
+        <!-- Projets Techniques -->
+        <div class="section projects">
+            <h2>Projets Techniques</h2>
+            <ul>
+                <li>
+                    <strong>Minishell :</strong>
+                    <span>Développement d'un interpréteur de commandes Unix respectant les normes POSIX.</span>
+                </li>
+                <li>
+                    <strong>Transcendance :</strong>
+                    <span>Création d'un jeu multijoueur en ligne utilisant WebSocket.</span>
+                </li>
+                <li>
+                    <strong>Portfolio personnel :</strong>
+                    <span>Conception et déploiement d'un portfolio interactif en React et Node.js.</span>
+                </li>
+                <li>
+                    <strong>Philosophers :</strong>
+                    <span>Simulation du problème des philosophes mangeurs, avec gestion des threads, des mutex et des ressources partagées.</span>
+                </li>
+                <li>
+                    <strong>IRC :</strong>
+                    <span>Développement d'un serveur IRC respectant le protocole RFC 1459, avec gestion des connexions multiples, des canaux et des messages privés.</span>
+                </li>
+                <li>
+                    <strong>Inception :</strong>
+                    <span>Création et orchestration de conteneurs Docker pour déployer un environnement réseau complexe avec serveurs web et bases de données.</span>
+                </li>
+                <li>
+                    <strong>NetPractice :</strong>
+                    <span>Résolution de problèmes liés au routage, à la configuration IP et aux diagnostics réseau pour simuler des environnements réels.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Expérience Professionnelle -->
+        <div class="section">
+            <h2>Expérience Professionnelle</h2>
+            <ul>
+                <li><strong>Assistant Manager</strong> - Domino's Pizza (05/2018-07/2018). Gestion du magasin et référent HACCP.</li>
+                <li><strong>Premier équipier</strong> - Domino's Pizza (01/2017-05/2018). Supervision de la production et prise de commandes.</li>
+                <li><strong>Employé Polyvalent</strong> - Subway (09/2016-12/2016). Préparation et gestion des commandes.</li>
+                <li><strong>Conseiller de Vente</strong> - Printemps (01/2014-04/2014). Conseil client et mise en rayon.</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Nagui Vaillant Deflandre | Tous droits réservés</p>
+        </footer>
+    </div>
+</body>
+</html>
