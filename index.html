@@ -18,15 +18,33 @@
             max-width: 900px;
             margin: auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.95); 
+            background-color: rgba(255, 255, 255, 0.95);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            position: relative;
         }
 
         .header {
-            text-align: center;
-            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-bottom: 2px solid #00babc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .header-center {
+            flex: 2;
+            text-align: center;
+        }
+
+        .header-right {
+            flex: 1;
+            text-align: right;
         }
 
         .header h1 {
@@ -34,20 +52,36 @@
             margin: 0;
         }
 
-        .header .contact-info {
-            font-size: 16px;
-            margin-top: 10px;
+        .contact-info {
+            font-size: 14px;
         }
 
-        .header .contact-info a {
+        .contact-info a {
             text-decoration: none;
             color: #00babc;
             margin: 0 10px;
-            cursor: pointer;
         }
 
-        .header .contact-info a:active {
+        .contact-info a:active {
             color: #007a7a;
+        }
+
+        .contact-info a.replaced {
+            cursor: default;
+            color: #333;
+        }
+
+        .personal-info {
+            font-size: 14px;
+        }
+
+        .photo-placeholder {
+            width: 120px;
+            height: 120px;
+            background-color: #ddd;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            display: inline-block;
         }
 
         .section {
@@ -68,42 +102,18 @@
         }
 
         .projects li {
-            display: flex;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .projects li strong {
-            min-width: 200px;
-            font-weight: bold;
+            font-size: 18px;
             color: #007a7a;
         }
 
-        .projects li span {
-            flex-grow: 1;
-            text-align: justify;
-        }
-
-        .skills .skill-bar {
-            margin: 15px 0;
-        }
-
-        .skills .skill-bar span {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .skills .bar {
-            height: 10px;
-            background: #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .skills .bar div {
-            height: 100%;
-            background: linear-gradient(90deg, #00babc, #007a7a);
-            border-radius: 5px;
+        .projects li ul {
+            list-style: disc;
+            margin: 10px 0 0 20px;
+            padding: 0;
         }
 
         footer {
@@ -115,20 +125,34 @@
     </style>
     <script>
         function replaceLinkText(link, text) {
-            link.innerText = text;
-            link.removeAttribute('onclick');
+            if (!link.classList.contains('replaced')) {
+                link.innerText = text;
+                link.classList.add('replaced');
+            }
         }
     </script>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <!-- Header with Personal Information and Photo -->
         <div class="header">
-            <h1>Nagui Vaillant Deflandre</h1>
-            <div class="contact-info">
-                <a onclick="replaceLinkText(this, 'nagui.vaillant.deflandre@gmail.com')">✉️ Email</a>
-                <a onclick="replaceLinkText(this, '+33651922315')">📞 Téléphone</a>
-                <a href="https://github.com/naguivaillant" target="_blank">🐙 GitHub</a>
+            <div class="header-left">
+                <div class="personal-info">
+                    <p><strong>Date de naissance :</strong> 01/01/1990</p>
+                    <p><strong>Langues :</strong> Français, Anglais</p>
+                    <p><strong>Permis :</strong> B</p>
+                </div>
+            </div>
+            <div class="header-center">
+                <h1>Nagui Vaillant Deflandre</h1>
+                <div class="contact-info">
+                    <a href="#" onclick="replaceLinkText(this, 'nagui.vaillant.deflandre@gmail.com')">✉️ Email</a>
+                    <a href="#" onclick="replaceLinkText(this, '+33651922315')">📞 Téléphone</a>
+                    <a href="https://github.com/naguivaillant" target="_blank">🐙 GitHub</a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="photo-placeholder"></div>
             </div>
         </div>
 
@@ -149,62 +173,65 @@
             <p><strong>CFA Versailles</strong> - CAP Boulanger (2016).</p>
         </div>
 
-        <!-- Compétences -->
-        <div class="section skills">
-            <h2>Compétences</h2>
-            <div class="skill-bar">
-                <span>Algorithmes et IA:</span>
-                <div class="bar"><div style="width: 75%;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <span>Programmation orientée objet:</span>
-                <div class="bar"><div style="width: 85%;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <span>Réseau et administration système:</span>
-                <div class="bar"><div style="width: 70%;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <span>Web (HTML, CSS, JS):</span>
-                <div class="bar"><div style="width: 80%;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <span>Unix:</span>
-                <div class="bar"><div style="width: 90%;"></div></div>
-            </div>
-        </div>
-
-        <!-- Projets Techniques -->
+        <!-- Réalisations Techniques et Projets -->
         <div class="section projects">
-            <h2>Projets Techniques</h2>
+            <h2>Réalisations Techniques et Projets</h2>
             <ul>
                 <li>
-                    <strong>Minishell :</strong>
-                    <span>Développement d'un interpréteur de commandes Unix respectant les normes POSIX.</span>
+                    <strong>Minishell (C) :</strong>
+                    <ul>
+                        <li>Description : Création d'un interpréteur de commandes Unix respectant les normes POSIX.</li>
+                        <li>Problématique : Comprendre et reproduire le comportement d'un shell, tout en gérant les processus et les redirections.</li>
+                        <li>Moyens : Utilisation de <code>fork</code>, <code>execve</code>, et <code>pipe</code> pour gérer les appels système.</li>
+                    </ul>
                 </li>
                 <li>
-                    <strong>Transcendance :</strong>
-                    <span>Création d'un jeu multijoueur en ligne utilisant WebSocket.</span>
+                    <strong>Transcendance (JavaScript, WebSocket) :</strong>
+                    <ul>
+                        <li>Description : Développement d’un jeu multijoueur en ligne avec synchronisation temps réel.</li>
+                        <li>Problématique : Garantir une communication fluide et en temps réel entre les joueurs.</li>
+                        <li>Moyens : Utilisation de WebSocket pour la communication temps réel et React pour l'interface utilisateur.</li>
+                    </ul>
                 </li>
                 <li>
-                    <strong>Portfolio personnel :</strong>
-                    <span>Conception et déploiement d'un portfolio interactif en React et Node.js.</span>
+                    <strong>Portfolio personnel (React, Node.js) :</strong>
+                    <ul>
+                        <li>Description : Création d’un portfolio interactif pour présenter mes projets et compétences.</li>
+                        <li>Problématique : Déployer un site performant et facilement modifiable.</li>
+                        <li>Moyens : Intégration de React Router et déploiement via CI/CD (GitHub Actions).</li>
+                    </ul>
                 </li>
                 <li>
-                    <strong>Philosophers :</strong>
-                    <span>Simulation du problème des philosophes mangeurs, avec gestion des threads, des mutex et des ressources partagées.</span>
+                    <strong>Philosophers (C, Threads) :</strong>
+                    <ul>
+                        <li>Description : Simulation du problème des philosophes mangeurs.</li>
+                        <li>Problématique : Gérer la synchronisation et éviter les interblocages.</li>
+                        <li>Moyens : Implémentation de threads et mutex pour synchroniser les accès partagés.</li>
+                    </ul>
                 </li>
                 <li>
-                    <strong>IRC :</strong>
-                    <span>Développement d'un serveur IRC respectant le protocole RFC 1459, avec gestion des connexions multiples, des canaux et des messages privés.</span>
+                    <strong>IRC (C++, Réseau) :</strong>
+                    <ul>
+                        <li>Description : Développement d’un serveur IRC respectant le protocole RFC 1459.</li>
+                        <li>Problématique : Gérer plusieurs utilisateurs et canaux simultanément.</li>
+                        <li>Moyens : Utilisation de sockets réseau et gestion des threads pour chaque connexion utilisateur.</li>
+                    </ul>
                 </li>
                 <li>
-                    <strong>Inception :</strong>
-                    <span>Création et orchestration de conteneurs Docker pour déployer un environnement réseau complexe avec serveurs web et bases de données.</span>
+                    <strong>Inception (Docker, Réseaux) :</strong>
+                    <ul>
+                        <li>Description : Création d’un environnement conteneurisé avec Docker pour simuler un réseau complet.</li>
+                        <li>Problématique : Orchestration de multiples services de manière isolée et sécurisée.</li>
+                        <li>Moyens : Utilisation de Docker Compose pour orchestrer les conteneurs (MySQL, Nginx).</li>
+                    </ul>
                 </li>
                 <li>
-                    <strong>NetPractice :</strong>
-                    <span>Résolution de problèmes liés au routage, à la configuration IP et aux diagnostics réseau pour simuler des environnements réels.</span>
+                    <strong>NetPractice (Réseaux) :</strong>
+                    <ul>
+                        <li>Description : Résolution de problèmes complexes liés au routage et à la configuration IP.</li>
+                        <li>Problématique : Identifier et résoudre des erreurs dans la configuration réseau.</li>
+                        <li>Moyens : Analyse des protocoles TCP/IP et simulation d’environnements réseau complexes.</li>
+                    </ul>
                 </li>
             </ul>
         </div>
