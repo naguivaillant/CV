@@ -75,13 +75,12 @@
             font-size: 14px;
         }
 
-        .photo-placeholder {
+        .header-right img {
             width: 120px;
             height: 120px;
-            background-color: #ddd;
-            border: 1px solid #aaa;
             border-radius: 5px;
-            display: inline-block;
+            object-fit: cover;
+            border: 1px solid #aaa;
         }
 
         .section {
@@ -134,7 +133,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header with Personal Information and Photo -->
+        <!-- Header -->
         <div class="header">
             <div class="header-left">
                 <div class="personal-info">
@@ -152,7 +151,7 @@
                 </div>
             </div>
             <div class="header-right">
-                <div class="photo-placeholder"></div>
+                <img src="photo.jpeg" alt="Photo de profil">
             </div>
         </div>
 
